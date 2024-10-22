@@ -68,7 +68,7 @@ header form {
 header form input[type=submit] {
     background-color: var(--orange);
     font-weight: 600;
-    padding: 0.6rem 1.2rem;
+    padding: 0.8rem 1.4rem;
     border-radius: 0.3rem;
     color: var(--white);
 }
@@ -103,6 +103,16 @@ ul li {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+}
+
+ul li:hover {
+    color: var(--blue);
+    cursor: pointer;
+}
+
+.checked {
+    color: var(--dark-grey);
+    text-decoration: line-through;
 }
 
 /* Footer styles */
