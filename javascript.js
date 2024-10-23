@@ -13,6 +13,8 @@ function updateTodosUI() {
         const checkbox = document.createElement('input');
         checkbox.setAttribute('type', 'checkbox');
         checkbox.checked = todo.isCompleted;
+        checkbox.dataset.todoId = todo.id;
+        checkbox.classList.add('checkbox');
 
         const todoLiElement = document.createElement('li');
         if (todo.isCompleted) {
@@ -25,6 +27,14 @@ function updateTodosUI() {
     }
 }
 
+listElement.addEventListener('click', (event) => {
+    if (event.target.matches('input.checkbox')) {
+        const todoIndex = todos.findIndex(todo => todo.id == event.target.dataset.todoId);
+        todos[todoIndex] = { ...todos[todoIndex], isCompleted: event.target.checked};
+        event.target.parentElement.classList.toggle('checked');
+    }
+})
+
 todoForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const todoInput = document.getElementById('todo-text');
@@ -34,7 +44,7 @@ todoForm.addEventListener('submit', (event) => {
         return;
     }
 
-    todos.push({ text: todoInput.value, isCompleted: false });
+    todos.push({ id: Date.now(), text: todoInput.value, isCompleted: false });
     todoInput.value = '';
     updateTodosUI();
 });
