@@ -82,7 +82,7 @@ header form input[type=text] {
 /* List styles */
 ul {
     max-height: calc(100vh - 8rem);
-    overflow: scroll;
+    overflow: auto;
     padding-top: 8.5rem;
     padding-bottom: 2rem;
     width: 90%;
