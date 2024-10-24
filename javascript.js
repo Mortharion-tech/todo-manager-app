@@ -1,5 +1,6 @@
 const listElement = document.getElementById('todo-list');
 const todoForm = document.getElementById('todo-form');
+const clearAll = document.getElementById('clear-all');
 const todos = [];
 
 function updateTodosUI() {
@@ -33,7 +34,7 @@ listElement.addEventListener('click', (event) => {
         todos[todoIndex] = { ...todos[todoIndex], isCompleted: event.target.checked};
         event.target.parentElement.classList.toggle('checked');
     }
-})
+});
 
 todoForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -47,4 +48,9 @@ todoForm.addEventListener('submit', (event) => {
     todos.push({ id: Date.now(), text: todoInput.value, isCompleted: false });
     todoInput.value = '';
     updateTodosUI();
+});
+
+clearAll.addEventListener('click', (event) => {
+    listElement.innerHTML = '';
+    todos.length = 0;
 });
