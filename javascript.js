@@ -1,6 +1,7 @@
 const listElement = document.getElementById('todo-list');
 const todoForm = document.getElementById('todo-form');
 const clearAll = document.getElementById('clear-all');
+let removeButton;
 const todos = [];
 
 function updateTodosUI() {
@@ -20,7 +21,8 @@ function updateTodosUI() {
         const button = document.createElement('button');
         button.innerHTML = 'Remove';
         button.dataset.todoId = todo.id;
-//        button.classList.add('');
+        button.classList.add('remove-button');
+        removeButton = document.querySelectorAll('.remove-button');
 
         const todoLiElement = document.createElement('li');
         if (todo.isCompleted) {
@@ -60,3 +62,7 @@ clearAll.addEventListener('click', (event) => {
     listElement.innerHTML = '';
     todos.length = 0;
 });
+
+removeButton.addEventListener('click', (event) => {
+    
+})
