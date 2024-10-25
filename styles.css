@@ -6,6 +6,7 @@
     --green: #057E18;
     --light-grey: #ECECEC;
     --dark-grey: #989898;
+    --red: #FF0000;
 
     --max-width: 900px;
 }
@@ -103,6 +104,7 @@ ul li {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    justify-content: space-between;
 }
 
 ul li:hover {
@@ -113,6 +115,11 @@ ul li:hover {
 .checked {
     color: var(--dark-grey);
     text-decoration: line-through;
+}
+
+ul li button {
+    display: flex;
+    color: var(--red);
 }
 
 /* Footer styles */
