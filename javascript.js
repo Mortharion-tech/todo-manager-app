@@ -17,6 +17,11 @@ function updateTodosUI() {
         checkbox.dataset.todoId = todo.id;
         checkbox.classList.add('checkbox');
 
+        const button = document.createElement('button');
+        button.innerHTML = 'Remove';
+        button.dataset.todoId = todo.id;
+//        button.classList.add('');
+
         const todoLiElement = document.createElement('li');
         if (todo.isCompleted) {
             todoLiElement.classList.add('checked');
@@ -24,6 +29,7 @@ function updateTodosUI() {
 
         todoLiElement.append(checkbox);
         todoLiElement.append(span);
+        todoLiElement.append(button);
         listElement.append(todoLiElement);
     }
 }
