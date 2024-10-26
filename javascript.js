@@ -2,7 +2,7 @@ const listElement = document.getElementById('todo-list');
 const todoForm = document.getElementById('todo-form');
 const clearAll = document.getElementById('clear-all');
 let removeButton;
-const todos = [];
+let todos = [];
 
 //  update task list
 function updateTodosUI() {
@@ -32,6 +32,10 @@ function updateTodosUI() {
         }
 
         removeButton.addEventListener('click', () => {
+            console.log(removeButton.dataset.todoId);
+            console.log(todos);
+            todos = todos.filter(task=> task.id != removeButton.dataset.todoId);
+            console.log(todos);
             listElement.removeChild(todoLiElement);
         });
 
