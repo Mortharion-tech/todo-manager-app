@@ -4,6 +4,7 @@ const clearAll = document.getElementById('clear-all');
 let removeButton;
 const todos = [];
 
+//  update task list
 function updateTodosUI() {
     listElement.innerHTML = '';
     for (let todo of todos) {
@@ -18,24 +19,35 @@ function updateTodosUI() {
         checkbox.dataset.todoId = todo.id;
         checkbox.classList.add('checkbox');
 
-        const button = document.createElement('button');
-        button.innerHTML = 'Remove';
-        button.dataset.todoId = todo.id;
-        button.classList.add('remove-button');
-        removeButton = document.querySelectorAll('.remove-button');
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.dataset.todoId = todo.id;
+        removeButton.classList.add('remove-button');
+//        removeButtonList = document.querySelectorAll('.remove-button');
+        
 
         const todoLiElement = document.createElement('li');
         if (todo.isCompleted) {
             todoLiElement.classList.add('checked');
         }
 
+        removeButton.addEventListener('click', () => {
+            listElement.removeChild(todoLiElement);
+        });
+
         todoLiElement.append(checkbox);
         todoLiElement.append(span);
-        todoLiElement.append(button);
+        todoLiElement.append(removeButton);
+
+        /* todoLiElement.querySelectorAll('.remove-button').addEventListener('click', function() {
+            console.log('works');
+        }); */
+
         listElement.append(todoLiElement);
     }
 }
 
+//  check/uncheck task
 listElement.addEventListener('click', (event) => {
     if (event.target.matches('input.checkbox')) {
         const todoIndex = todos.findIndex(todo => todo.id == event.target.dataset.todoId);
@@ -44,6 +56,7 @@ listElement.addEventListener('click', (event) => {
     }
 });
 
+//  add new task
 todoForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const todoInput = document.getElementById('todo-text');
@@ -58,11 +71,12 @@ todoForm.addEventListener('submit', (event) => {
     updateTodosUI();
 });
 
+//  clear all tasks
 clearAll.addEventListener('click', (event) => {
     listElement.innerHTML = '';
     todos.length = 0;
 });
 
-removeButton.addEventListener('click', (event) => {
-    
-})
+/* if (removeButton) removeButton.addEventListener('click', (event) => {
+    console.log('yea');
+}); */
