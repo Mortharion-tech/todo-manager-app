@@ -8,8 +8,6 @@ let todos = [];
 function updateTodosUI() {
     listElement.innerHTML = '';
     for (let todo of todos) {
-        // <li><input type="checkbox"><span>New List Item</span></li>
-
         const span = document.createElement('span');
         span.innerText = todo.text;
 
@@ -22,9 +20,7 @@ function updateTodosUI() {
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
         removeButton.dataset.todoId = todo.id;
-        removeButton.classList.add('remove-button');
-//        removeButtonList = document.querySelectorAll('.remove-button');
-        
+        removeButton.classList.add('remove-button');        
 
         const todoLiElement = document.createElement('li');
         if (todo.isCompleted) {
@@ -42,10 +38,6 @@ function updateTodosUI() {
         todoLiElement.append(checkbox);
         todoLiElement.append(span);
         todoLiElement.append(removeButton);
-
-        /* todoLiElement.querySelectorAll('.remove-button').addEventListener('click', function() {
-            console.log('works');
-        }); */
 
         listElement.append(todoLiElement);
     }
@@ -80,7 +72,3 @@ clearAll.addEventListener('click', (event) => {
     listElement.innerHTML = '';
     todos.length = 0;
 });
-
-/* if (removeButton) removeButton.addEventListener('click', (event) => {
-    console.log('yea');
-}); */
