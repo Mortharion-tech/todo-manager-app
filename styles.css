@@ -112,7 +112,7 @@ ul li:hover {
     cursor: pointer;
 }
 
-.checked {
+.checked span {
     color: var(--dark-grey);
     text-decoration: line-through;
 }
