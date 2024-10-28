@@ -111,6 +111,14 @@ ul li {
 
 ul li:hover {
     color: var(--blue);
+    cursor: default;
+}
+
+ul li input:hover {
+    cursor: pointer;
+}
+
+ul li input:hover {
     cursor: pointer;
 }
 
