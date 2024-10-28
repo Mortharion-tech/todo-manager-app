@@ -8,7 +8,7 @@
     --dark-grey: #989898;
     --red: #FF0000;
 
-    --max-width: 400px;
+    --max-width: 800px;
 }
 
 /* Global styles */
@@ -57,10 +57,12 @@ header h1 {
     color: var(--dark-blue);
     margin-bottom: 1rem;
     font-weight: 700;
+    cursor: default;
 }
 
 header form {
     display: flex;
+    justify-content: center;
     gap: 0.5rem;
     margin-bottom: 1rem;
     width: 90%;
